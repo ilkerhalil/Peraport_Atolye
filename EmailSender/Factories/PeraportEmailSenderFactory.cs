@@ -5,7 +5,7 @@
 
         public static IPeraportEmailSender CreateEmailSender()
         {
-            return new PeraportEmailSender();
+            return new PeraportSmtpClientEmailSender();
         }
     }
 }
