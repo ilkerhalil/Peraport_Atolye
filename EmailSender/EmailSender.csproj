@@ -36,18 +36,25 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AE.Net.Mail, Version=1.7.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\AE.Net.Mail.1.7.10.0\lib\net45\AE.Net.Mail.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IPeraportEmailSender.cs" />
-    <Compile Include="PeraportAttachment.cs" />
-    <Compile Include="PeraportAttachmentCollection.cs" />
-    <Compile Include="PeraportEmailSender.cs" />
-    <Compile Include="PeraportEmailSenderFactory.cs" />
-    <Compile Include="PeraportBaseMailMessage.cs" />
-    <Compile Include="PeraportMailMessageImpl.cs" />
+    <Compile Include="Interfaces\IPeraportEmailSender.cs" />
+    <Compile Include="Common\PeraportAttachment.cs" />
+    <Compile Include="Common\PeraportAttachmentCollection.cs" />
+    <Compile Include="Impl\PeraportEmailSender.cs" />
+    <Compile Include="Factories\PeraportEmailSenderFactory.cs" />
+    <Compile Include="Interfaces\PeraportBaseMailMessage.cs" />
+    <Compile Include="Impl\PeraportMailMessageImpl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
