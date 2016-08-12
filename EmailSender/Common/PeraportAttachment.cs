@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System.Net.Mail;
 
-namespace EmailSender
+namespace EmailSender.Common
 {
     public class PeraportAttachment
     {

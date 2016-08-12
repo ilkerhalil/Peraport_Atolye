@@ -1,4 +1,4 @@
-﻿namespace EmailSender
+﻿namespace EmailSender.Interfaces
 {
     public interface IPeraportEmailSender
     {

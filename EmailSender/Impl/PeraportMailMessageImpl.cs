@@ -1,8 +1,10 @@
-﻿namespace EmailSender
+﻿using EmailSender.Interfaces;
+
+namespace EmailSender.Impl
 {
     public class PeraportMailMessageImpl : PeraportBaseMailMessage
     {
-        public PeraportMailMessageImpl(string from, string[] to, string subject, string body) : base(from, to, subject, body)
+        public PeraportMailMessageImpl(string from, string[] to, string subject, string body)
         {
         }
     }

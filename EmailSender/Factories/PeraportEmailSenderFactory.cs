@@ -1,4 +1,7 @@
-﻿namespace EmailSender
+﻿using EmailSender.Impl;
+using EmailSender.Interfaces;
+
+namespace EmailSender.Factories
 {
     public static class PeraportEmailSenderFactory
     {
