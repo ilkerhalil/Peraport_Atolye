@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EmailSenderImpl")]
+[assembly: AssemblyTitle("Logger.DebugImpl")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EmailSenderImpl")]
+[assembly: AssemblyProduct("Logger.DebugImpl")]
 [assembly: AssemblyCopyright("Copyright ©  2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("09cd7472-0290-47f4-aeb2-2fb311c6f7bf")]
+[assembly: Guid("844d8c60-559c-42e0-a4b0-ceac3eb4dd46")]
 
 // Version information for an assembly consists of the following four values:
 //

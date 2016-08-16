@@ -1,10 +1,9 @@
-﻿using System;
-using System.Linq;
+﻿using Common.MailSender.Types;
 using EmailSender.Common;
 
-namespace EmailSender.Interfaces
+namespace Common.MailSender.Interfaces
 {
-    public abstract class PeraportBaseMailMessage
+    public abstract class BasePeraportMailMessage
     {
 
         public virtual string From { get; set; }
@@ -16,7 +15,7 @@ namespace EmailSender.Interfaces
         public virtual bool IsBodyHtml { get; set; }
         public virtual PeraportAttachmentCollection AttachmentCollection { get; }
 
-        protected PeraportBaseMailMessage()
+        protected BasePeraportMailMessage()
         {
             AttachmentCollection = new PeraportAttachmentCollection();
             To = new PeraportMailAddressCollection();

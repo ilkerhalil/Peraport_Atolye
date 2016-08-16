@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Security.Permissions;
+ 
 using System.Text.RegularExpressions;
-using EmailSender.Properties;
+using Common.Properties;
+ 
 
 namespace EmailSender.Common
 {

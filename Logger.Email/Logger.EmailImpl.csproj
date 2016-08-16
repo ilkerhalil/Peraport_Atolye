@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{3C2E0A9A-F635-4AA2-82D5-FD90CD141C6A}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{CCC1BC60-50C3-4959-A025-24C3AD1AC4B2}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>EmailSender.Console</RootNamespace>
-    <AssemblyName>EmailSender.Console</AssemblyName>
+    <RootNamespace>Logger.EmailImpl</RootNamespace>
+    <AssemblyName>Logger.EmailImpl</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,51 +30,21 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AE.Net.Mail, Version=1.7.10.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\AE.Net.Mail.1.7.10.0\lib\net45\AE.Net.Mail.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="EmailLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Common\Common.csproj">
-      <Project>{c0736a76-f498-4e8a-8030-aab0c203a9cc}</Project>
+      <Project>{C0736A76-F498-4E8A-8030-AAB0C203A9CC}</Project>
       <Name>Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\EmailSender\EmailSenderImpl.csproj">
       <Project>{09CD7472-0290-47F4-AEB2-2FB311C6F7BF}</Project>
       <Name>EmailSenderImpl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Logger.DebugImpl\Logger.DebugImpl.csproj">
-      <Project>{844d8c60-559c-42e0-a4b0-ceac3eb4dd46}</Project>
-      <Name>Logger.DebugImpl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Logger.Email\Logger.EmailImpl.csproj">
-      <Project>{ccc1bc60-50c3-4959-a025-24c3ad1ac4b2}</Project>
-      <Name>Logger.EmailImpl</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Logger.EventViewerImpl\Logger.EventViewerImpl.csproj">
-      <Project>{b3390d27-a020-4650-9b47-e2dbfd8c6af8}</Project>
-      <Name>Logger.EventViewerImpl</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

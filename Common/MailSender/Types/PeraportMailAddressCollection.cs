@@ -1,6 +1,7 @@
 using System.Collections.Generic;
+using EmailSender.Common;
 
-namespace EmailSender.Common
+namespace Common.MailSender.Types
 {
     public class PeraportMailAddressCollection : List<PeraportMailAddress>
     {

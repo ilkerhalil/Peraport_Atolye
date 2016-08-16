@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace EmailSender.Common
+namespace Common.MailSender.Types
 {
     public class PeraportAttachmentCollection : List<PeraportAttachment>
     {
