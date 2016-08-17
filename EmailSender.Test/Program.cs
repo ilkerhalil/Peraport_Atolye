@@ -1,9 +1,4 @@
-﻿using AE.Net.Mail;
- 
-using System;
-using System.Configuration;
-using Common.Logging;
-using Common.Logging.ConfigurationSections;
+﻿using Common.Logging;
 
 namespace EmailSender.Console
 {
@@ -15,14 +10,11 @@ namespace EmailSender.Console
             var mailMessage = new PeraportMailMessageImpl();
             emailSender.SendEmail(mailMessage);*/
 
-            //var q = new ImapClient("host", "ekremalpayy@gmail.com", "Pss!14181850.9298", AuthMethods.Login, 143, false, false);
-
             //var emailSenderImap = PeraportEmailSenderFactoryImap.CreateEmailSender();
             //var mailMessageImap = new PeraportMailMessageImplImap();
-          //  emailSenderImap.SendMailImap(mailMessageImap);
+            //  emailSenderImap.SendMailImap(mailMessageImap);
             //var loggerConfigSection = ConfigurationManager.GetSection("LoggerSection") as LoggerConfigurationSection;
-            LoggerManager.Log(LogLevel.Debug, 1,"merhaba");
-            
+            LoggerManager.Log(LogLevel.Debug, 1, "merhaba");
         }
     }
 }
