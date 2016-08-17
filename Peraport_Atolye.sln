@@ -1,11 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender", "EmailSender\EmailSender.csproj", "{09CD7472-0290-47F4-AEB2-2FB311C6F7BF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSenderImpl", "EmailSender\EmailSenderImpl.csproj", "{09CD7472-0290-47F4-AEB2-2FB311C6F7BF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EmailSender.Console", "EmailSender.Test\EmailSender.Console.csproj", "{3C2E0A9A-F635-4AA2-82D5-FD90CD141C6A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{C0736A76-F498-4E8A-8030-AAB0C203A9CC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger.DebugImpl", "Logger.DebugImpl\Logger.DebugImpl.csproj", "{844D8C60-559C-42E0-A4B0-CEAC3EB4DD46}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger.EmailImpl", "Logger.Email\Logger.EmailImpl.csproj", "{CCC1BC60-50C3-4959-A025-24C3AD1AC4B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logger.EventViewerImpl", "Logger.EventViewerImpl\Logger.EventViewerImpl.csproj", "{B3390D27-A020-4650-9B47-E2DBFD8C6AF8}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +29,22 @@ Global
 		{3C2E0A9A-F635-4AA2-82D5-FD90CD141C6A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C2E0A9A-F635-4AA2-82D5-FD90CD141C6A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C2E0A9A-F635-4AA2-82D5-FD90CD141C6A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0736A76-F498-4E8A-8030-AAB0C203A9CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0736A76-F498-4E8A-8030-AAB0C203A9CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0736A76-F498-4E8A-8030-AAB0C203A9CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0736A76-F498-4E8A-8030-AAB0C203A9CC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{844D8C60-559C-42E0-A4B0-CEAC3EB4DD46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{844D8C60-559C-42E0-A4B0-CEAC3EB4DD46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{844D8C60-559C-42E0-A4B0-CEAC3EB4DD46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{844D8C60-559C-42E0-A4B0-CEAC3EB4DD46}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CCC1BC60-50C3-4959-A025-24C3AD1AC4B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCC1BC60-50C3-4959-A025-24C3AD1AC4B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCC1BC60-50C3-4959-A025-24C3AD1AC4B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCC1BC60-50C3-4959-A025-24C3AD1AC4B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3390D27-A020-4650-9B47-E2DBFD8C6AF8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3390D27-A020-4650-9B47-E2DBFD8C6AF8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3390D27-A020-4650-9B47-E2DBFD8C6AF8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3390D27-A020-4650-9B47-E2DBFD8C6AF8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
