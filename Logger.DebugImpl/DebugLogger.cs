@@ -6,9 +6,9 @@ namespace Logger.DebugImpl
 {
     public class DebugLogger : ILogger
     {
-        public void Log(LogLevel level, int eventId, string message, string path)
+        public void Log(LogLevel level, int eventId, string message)
         {
-            Debug.WriteLine($"LogLevel => {level} - EventId => {eventId} - Message => {message} - Path => {path}");
+            Debug.WriteLine($"LogLevel => {level} - EventId => {eventId} - Message => {message}");
         }
     }
 }

@@ -8,7 +8,7 @@ namespace Logger.FileLogger
 {
     public class FileLogger : ILogger
     {
-        public async void Log(LogLevel level, int eventId, string message, string path)
+        public async void Log(LogLevel level, int eventId, string message)
         {
             Rolling r = new Rolling();
             string logFileName = r.RollLogFile();

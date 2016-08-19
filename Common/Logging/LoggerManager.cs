@@ -7,19 +7,17 @@ namespace Common.Logging
     {
         private static ILogger[] Logger { get; set; }
 
-
         static LoggerManager()
         {
 
-
         }
 
-        public static void Log(LogLevel level, int eventId, string message, string path)
+        public static void Log(LogLevel level, int eventId, string message)
         {
             Logger = LoggerFactory.GetLoggers().ToArray();
             foreach (var logger in Logger)
             {
-                logger.Log(level, eventId, message, path);
+                logger.Log(level, eventId, message);
             }
         }
     }

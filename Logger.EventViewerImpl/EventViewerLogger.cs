@@ -7,9 +7,7 @@ namespace Logger.EventViewerImpl
     public class EventViewerLogger : ILogger
     {
         public string Source { get; set; }
-
         public string Event { get; set; }
-
         public string SLog { get; set; }
 
         public EventViewerLogger(string source, string @event, string sLog)
@@ -20,7 +18,7 @@ namespace Logger.EventViewerImpl
         }
 
 
-        public void Log(LogLevel level, int eventId, string message, string path)
+        public void Log(LogLevel level, int eventId, string message)
         {
             if (!EventLog.SourceExists(Source))
             {
@@ -47,7 +45,6 @@ namespace Logger.EventViewerImpl
                 case LogLevel.Verbose:
                     EventLog.WriteEntry(Source, message, EventLogEntryType.Information, eventId);
                     break;
-
             }
         }
     }
