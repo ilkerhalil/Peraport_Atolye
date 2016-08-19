@@ -11,15 +11,15 @@ namespace Common.Logging
         static LoggerManager()
         {
 
-            
+
         }
 
-        public static void Log(LogLevel level, int eventId, string message)
+        public static void Log(LogLevel level, int eventId, string message, string path)
         {
             Logger = LoggerFactory.GetLoggers().ToArray();
             foreach (var logger in Logger)
             {
-                logger.Log(level, eventId, message);
+                logger.Log(level, eventId, message, path);
             }
         }
     }

@@ -79,6 +79,10 @@
       <Project>{b3390d27-a020-4650-9b47-e2dbfd8c6af8}</Project>
       <Name>Logger.EventViewerImpl</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Logger.FileLogger\Logger.FileLoggerImpl.csproj">
+      <Project>{3d587314-24a5-474b-aa85-144a4333902e}</Project>
+      <Name>Logger.FileLoggerImpl</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

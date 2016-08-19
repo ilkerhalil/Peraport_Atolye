@@ -14,7 +14,7 @@ namespace EmailSender.Console
             //var mailMessageImap = new PeraportMailMessageImplImap();
             //  emailSenderImap.SendMailImap(mailMessageImap);
             //var loggerConfigSection = ConfigurationManager.GetSection("LoggerSection") as LoggerConfigurationSection;
-            LoggerManager.Log(LogLevel.Debug, 1, "merhaba");
+            LoggerManager.Log(LogLevel.Debug, 1, "merhaba", @"C:\Users\umut\Desktop\text.txt");
         }
     }
 }

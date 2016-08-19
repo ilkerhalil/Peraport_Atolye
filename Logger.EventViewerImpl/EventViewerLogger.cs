@@ -20,7 +20,7 @@ namespace Logger.EventViewerImpl
         }
 
 
-        public void Log(LogLevel level, int eventId, string message)
+        public void Log(LogLevel level, int eventId, string message, string path)
         {
             if (!EventLog.SourceExists(Source))
             {

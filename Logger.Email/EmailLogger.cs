@@ -21,10 +21,10 @@ namespace Logger.EmailImpl
             _peraportEmailSender = peraportEmailSender;
         }
 
-        public void Log(LogLevel level, int eventId, string message)
+        public void Log(LogLevel level, int eventId, string message, string path)
         {
-            var body = $"LogLevel => {level} - EventId=> {eventId} - Message {message}";
-            _peraportEmailSender.SendEmail(new BasePeraportMailMessageImpl(From, To, Subject, body));
+            var body = $"LogLevel => {level} - EventId => {eventId} - Message => {message} - Path => {path}";
+            //_peraportEmailSender.SendEmail(new BasePeraportMailMessageImpl(From, To, Subject, body));
         }
     }
 }

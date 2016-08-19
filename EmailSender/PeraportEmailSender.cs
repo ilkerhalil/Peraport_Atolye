@@ -11,7 +11,6 @@ namespace EmailSenderImpl
     {
         private readonly SmtpClient _smtpClient;
 
-
         public int Timeout { get; set; }
 
         public PeraportSmtpClientEmailSender()
@@ -39,7 +38,6 @@ namespace EmailSenderImpl
             _smtpClient.Send(mailMessage);
         }
 
-
         private static MailMessage MapToMailMessage(BasePeraportMailMessage basePeraportMailMessage)
         {
             var mailMessage = new MailMessage();
@@ -53,7 +51,6 @@ namespace EmailSenderImpl
             basePeraportMailMessage.To.ToList().ForEach(f => mailMessage.To.Add(new MailAddress(f.MailAddress, f.DisplayName)));
             if (basePeraportMailMessage.Cc.Any())
             {
-
                 basePeraportMailMessage.Cc.ToList().ForEach(f => mailMessage.CC.Add(new MailAddress(f.MailAddress, f.DisplayName)));
             }
             if (basePeraportMailMessage.Bcc.Any())
