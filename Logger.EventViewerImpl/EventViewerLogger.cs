@@ -17,7 +17,6 @@ namespace Logger.EventViewerImpl
             SLog = sLog;
         }
 
-
         public void Log(LogLevel level, int eventId, string message)
         {
             if (!EventLog.SourceExists(Source))

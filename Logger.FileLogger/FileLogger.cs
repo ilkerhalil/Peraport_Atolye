@@ -1,22 +1,30 @@
 ﻿using System;
-using Common.Logging;
-using Common.Logging.Interfaces;
-using System.IO;
 using Common.Rolling;
+using System.Threading.Tasks;
 
 namespace Logger.FileLogger
 {
-    public class FileLogger : ILogger
+    public class FileLogger : IFileTextWriter
     {
-        public async void Log(LogLevel level, int eventId, string message)
+        public string FileName
         {
-            Rolling r = new Rolling();
-            string logFileName = r.RollLogFile();
-            using (var sw = new StreamWriter(logFileName, true))
+            get
             {
-                await sw.WriteAsync($"{DateTime.Now} LogLevel => {level} - EventId => {eventId} - Message => {message}");
-                await sw.FlushAsync();
+                throw new NotImplementedException();
             }
+        }
+
+        public string Path
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
+        public Task RollLogFile(string content)
+        {
+            throw new NotImplementedException();
         }
     }
 }

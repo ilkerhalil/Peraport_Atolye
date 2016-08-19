@@ -1,45 +1,87 @@
 ﻿using System;
 using System.IO;
+using System.Threading.Tasks;
+using System.Linq;
 
 namespace Common.Rolling
 {
-    public class Rolling
+    public class RollingFileTextWriter : IFileTextWriter
     {
-        public string RollLogFile()
+        private string _path;
+        private string _fileName;
+
+        public string Path
         {
-            string path = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
-            string appName = Path.GetFileNameWithoutExtension(Environment.GetCommandLineArgs()[0]);
-            string wildLogName = string.Format("{0}*.log", appName);
-
-            int fileCounter = 0;
-            string[] logFileList = Directory.GetFiles(path, wildLogName, SearchOption.TopDirectoryOnly);
-            if (logFileList.Length > 0)
+            get
             {
-                Array.Sort(logFileList, 0, logFileList.Length);
-                fileCounter = logFileList.Length - 1;
-                if (logFileList.Length > 25000000)
-                {
-                    File.Delete(logFileList[0]);
-                    for (int i = 1; i < logFileList.Length; i++)
-                    {
-                        File.Move(logFileList[i], logFileList[i - 1]);
-                    }
-                    --fileCounter;
-                }
-
-                string currFilePath = logFileList[fileCounter];
-                FileInfo f = new FileInfo(currFilePath);
-                if (f.Length < 25000000)
-                {
-                    return currFilePath;
-                }
-                else
-                {
-                    ++fileCounter;
-                }
-
+                return _path;
             }
-            return string.Format("{0}{1}{2}{3:00}.log", path, Path.DirectorySeparatorChar, appName, fileCounter);
+            private set
+            {
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException("Path   boş olmamalıdır.");
+                }
+                var pathInvalidChars = System.IO.Path.GetInvalidPathChars();
+                pathInvalidChars.ToList().ForEach(f =>
+                {
+                    if (value.Contains(f))
+                    {
+                        throw new System.Exception("Path'de uygunsuz içerik");
+                    }
+                });
+                _path = value;
+            }
+        }
+        public string FileName
+        {
+            get
+            {
+                return _fileName;
+            }
+            private set
+            {
+
+                if (string.IsNullOrWhiteSpace(value))
+                {
+                    throw new ArgumentNullException("Ddosya adı boş olmamalıdır.");
+                }
+                var fileInvalidChars = System.IO.Path.GetInvalidFileNameChars();
+                fileInvalidChars.ToList().ForEach(f =>
+                {
+                    if (value.Contains(f))
+                    {
+                        throw new System.Exception("FileName'de uygunsuz içerik");
+                    }
+                });
+                _fileName = value;
+            }
+        }
+        public bool IsAsync { get; set; }
+
+        public RollingFileTextWriter(string path, string fileName)
+        {
+            //ValidateParameters(path, fileName);
+            Path = path;
+            FileName = fileName;
+        }
+
+        public string FullFileName
+        {
+            get
+            {
+                return System.IO.Path.Combine(Path, FileName);
+            }
+        }
+
+        public async Task RollLogFile(string content)
+        {
+            using (FileStream fileStream = new FileStream(FullFileName, FileMode.OpenOrCreate))
+            {
+                FileInfo fileInfo = new FileInfo(FullFileName);
+                await fileInfo.AppendText().WriteLineAsync(content);
+            }
+
         }
     }
 }

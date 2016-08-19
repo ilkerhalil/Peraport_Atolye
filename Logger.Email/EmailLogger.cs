@@ -1,7 +1,6 @@
 ﻿using Common.Logging;
 using Common.Logging.Interfaces;
 using Common.MailSender.Interfaces;
-using EmailSenderImpl;
 
 namespace Logger.EmailImpl
 {
