@@ -1,7 +1,6 @@
 ﻿using Common.Logging;
 using Common.Logging.Interfaces;
 using Common.MailSender.Interfaces;
-using EmailSenderImpl;
 
 namespace Logger.EmailImpl
 {
@@ -23,8 +22,8 @@ namespace Logger.EmailImpl
 
         public void Log(LogLevel level, int eventId, string message)
         {
-            var body = $"LogLevel => {level} - EventId=> {eventId} - Message {message}";
-            _peraportEmailSender.SendEmail(new BasePeraportMailMessageImpl(From, To, Subject, body));
+            var body = $"LogLevel => {level} - EventId => {eventId} - Message => {message}";
+            //_peraportEmailSender.SendEmail(new BasePeraportMailMessageImpl(From, To, Subject, body));
         }
     }
 }

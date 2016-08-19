@@ -8,7 +8,7 @@ namespace Logger.DebugImpl
     {
         public void Log(LogLevel level, int eventId, string message)
         {
-            Debug.WriteLine($"LogLevel => {level} - EventId=> {eventId} - Message {message}");
+            Debug.WriteLine($"LogLevel => {level} - EventId => {eventId} - Message => {message}");
         }
     }
 }

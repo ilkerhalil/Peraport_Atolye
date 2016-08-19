@@ -7,11 +7,9 @@ namespace Common.Logging
     {
         private static ILogger[] Logger { get; set; }
 
-
         static LoggerManager()
         {
 
-            
         }
 
         public static void Log(LogLevel level, int eventId, string message)
