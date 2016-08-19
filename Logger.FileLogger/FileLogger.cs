@@ -1,30 +1,27 @@
-﻿using System;
-using Common.Rolling;
-using System.Threading.Tasks;
+﻿using Common.Rolling;
+using Common.Logging;
+using Common.Logging.Interfaces;
 
-namespace Logger.FileLogger
+namespace Logger.FileLoggerImpl
 {
-    public class FileLogger : IFileTextWriter
+    public class FileLogger : ILogger
     {
-        public string FileName
+        private readonly IRollingFileTextWriter _fileTextWriter;
+
+        public FileLogger(IRollingFileTextWriter fileTextWriter)
         {
-            get
-            {
-                throw new NotImplementedException();
-            }
+            _fileTextWriter = fileTextWriter;
+            LogFileSize = 100000000;
         }
 
-        public string Path
-        {
-            get
-            {
-                throw new NotImplementedException();
-            }
-        }
+        public int LogFileSize { get; set; }
 
-        public Task RollLogFile(string content)
+
+        public async void Log(LogLevel level, int eventId, string message)
         {
-            throw new NotImplementedException();
+            _fileTextWriter.RollingSize = LogFileSize;
+            var logMessage = $"LogLevel => {level} - EventId => {eventId} - Message => {message}";
+            await _fileTextWriter.RollLogFile(logMessage);
         }
     }
 }

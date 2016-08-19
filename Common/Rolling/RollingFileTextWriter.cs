@@ -5,10 +5,14 @@ using System.Linq;
 
 namespace Common.Rolling
 {
-    public class RollingFileTextWriter : IFileTextWriter
+    public class RollingFileTextWriter : IRollingFileTextWriter
     {
         private string _path;
         private string _fileName;
+
+        public long RollingSize { get; set; }
+
+        public string FileRollingSeperator { get; set; }
 
         public string Path
         {
@@ -27,7 +31,7 @@ namespace Common.Rolling
                 {
                     if (value.Contains(f))
                     {
-                        throw new System.Exception("Path'de uygunsuz içerik");
+                        throw new Exception("Path'de uygunsuz içerik");
                     }
                 });
                 _path = value;
@@ -44,7 +48,7 @@ namespace Common.Rolling
 
                 if (string.IsNullOrWhiteSpace(value))
                 {
-                    throw new ArgumentNullException("Ddosya adı boş olmamalıdır.");
+                    throw new ArgumentNullException("Dosya adı boş olmamalıdır.");
                 }
                 var fileInvalidChars = System.IO.Path.GetInvalidFileNameChars();
                 fileInvalidChars.ToList().ForEach(f =>
@@ -64,9 +68,11 @@ namespace Common.Rolling
             //ValidateParameters(path, fileName);
             Path = path;
             FileName = fileName;
+            RollingSize = 10000000;
+            FileRollingSeperator = "_";
         }
 
-        public string FullFileName
+        private string FullFileName
         {
             get
             {
@@ -74,14 +80,35 @@ namespace Common.Rolling
             }
         }
 
+        private string CurrentFileName { get; set; }
+
+
         public async Task RollLogFile(string content)
         {
-            using (FileStream fileStream = new FileStream(FullFileName, FileMode.OpenOrCreate))
+            if (File.Exists(FullFileName))
             {
-                FileInfo fileInfo = new FileInfo(FullFileName);
-                await fileInfo.AppendText().WriteLineAsync(content);
+                var fileInfo = new FileInfo(FullFileName);
+                if (fileInfo.Length >= RollingSize)
+                {
+                    var extension = System.IO.Path.GetExtension(FullFileName);
+                    var fileName = FullFileName.Replace("." + extension, "");
+                    fileName = $"{fileName}{FileRollingSeperator}{DateTime.Now.ToString("ssmmhhddMMyyyy")}.{extension}";
+                    CurrentFileName = fileName;
+                }
+                else
+                {
+                    CurrentFileName = FullFileName;
+                }
             }
-
+            else
+            {
+                using (var fileStream = File.Create(FullFileName))
+                {
+                    CurrentFileName = FullFileName;
+                }
+            }
+            var streamWriter = File.AppendText(CurrentFileName);
+            await streamWriter.WriteLineAsync(content);
         }
     }
 }

@@ -63,8 +63,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Rolling\IFileTextWriter.cs" />
-    <Compile Include="Rolling\Rolling.cs" />
+    <Compile Include="Rolling\IRollingFileTextWriter.cs" />
+    <Compile Include="Rolling\RollingFileTextWriter.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">

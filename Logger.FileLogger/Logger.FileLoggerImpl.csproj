@@ -7,8 +7,8 @@
     <ProjectGuid>{3D587314-24A5-474B-AA85-144A4333902E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Logger.FileLogger</RootNamespace>
-    <AssemblyName>Logger.FileLogger</AssemblyName>
+    <RootNamespace>Logger.FileLoggerImpl</RootNamespace>
+    <AssemblyName>Logger.FileLoggerImpl</AssemblyName>
     <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
