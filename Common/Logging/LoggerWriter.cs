@@ -3,18 +3,17 @@ using Common.Logging.Interfaces;
 
 namespace Common.Logging
 {
-    public static class LoggerManager
+    public class LoggerWriter
     {
-        private static ILogger[] Logger { get; set; }
+        private ILogger[] Logger { get; }
 
-        static LoggerManager()
+        public LoggerWriter(ILogger[] logger)
         {
-
+            Logger = logger;
         }
 
-        public static void Log(LogLevel level, int eventId, string message)
+        public void Log(LogLevel level, int eventId, string message)
         {
-            Logger = LoggerFactory.GetLoggers().ToArray();
             foreach (var logger in Logger)
             {
                 logger.Log(level, eventId, message);

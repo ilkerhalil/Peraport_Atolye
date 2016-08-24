@@ -7,11 +7,21 @@ using Common.Logging.Interfaces;
 
 namespace Common.Logging
 {
-    public static class LoggerFactory
+    public  class LoggerFactory : ILoggerFactory
     {
-        public static IEnumerable<ILogger> GetLoggers()
+
+        public  LoggerWriter CreateLogWriter()
+        {
+            var lggers = GetLoggers();
+            return new LoggerWriter(lggers.ToArray());
+        }
+
+
+        IEnumerable<ILogger> GetLoggers()
         {
             var loggerConfigSection = ConfigurationManager.GetSection("LoggerSection") as LoggerConfigurationSection;
+            //todo:Unutulanlar unutanlarý asla unutmaz.
+            if (loggerConfigSection == null) throw new Exception();
             var loggerDictionary =
                 loggerConfigSection.Loggers.Cast<LoggerConfigurationElement>()
                     .ToDictionary(k => k.Name, element => element.Type);

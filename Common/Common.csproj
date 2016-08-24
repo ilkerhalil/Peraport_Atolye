@@ -39,16 +39,22 @@
     <Reference Include="System.Core" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Exceptions\PeraportException.cs" />
     <Compile Include="Helper\ObjectExtension.cs" />
+    <Compile Include="Ioc\Container.cs" />
+    <Compile Include="Ioc\IContainer.cs" />
     <Compile Include="Logging\ConfigurationSections\ConstructorElement.cs" />
     <Compile Include="Logging\ConfigurationSections\LoggerConfigurationElement.cs" />
     <Compile Include="Logging\ConfigurationSections\LoggerConfigurationElementCollection.cs" />
     <Compile Include="Logging\ConfigurationSections\LoggerConfigurationSection.cs" />
     <Compile Include="Logging\ConfigurationSections\ParameterElement.cs" />
     <Compile Include="Logging\ConfigurationSections\ParameterElementCollection.cs" />
+    <Compile Include="Logging\ILoggerFactory.cs" />
     <Compile Include="Logging\Interfaces\ILogger.cs" />
+    <Compile Include="Logging\LogEntry.cs" />
+    <Compile Include="Logging\LogManager.cs" />
     <Compile Include="Logging\LoggerFactory.cs" />
-    <Compile Include="Logging\LoggerManager.cs" />
+    <Compile Include="Logging\LoggerWriter.cs" />
     <Compile Include="Logging\LogLevel.cs" />
     <Compile Include="MailSender\Interfaces\BasePeraportEmailSender.cs" />
     <Compile Include="MailSender\Interfaces\BasePeraportMailMessage.cs" />
